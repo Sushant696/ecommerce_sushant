@@ -7,47 +7,83 @@ import {
   PieChartOutlined,
 } from "@ant-design/icons";
 
-import { Button, Menu } from "antd";
-function getItem(label, key, icon, children, type) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  };
-}
-const items = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("Option 3", "3", <DesktopOutlined />),
-  getItem("Option 4", "4", <ContainerOutlined />),
-  getItem("Option 5", "5", <ContainerOutlined />),
-];
+import { Menu } from "antd";
+import { StyledButton } from "./styling";
+
+// function getItem(label, key, icon, children, type) {
+//   return {
+//     key,
+//     icon,
+//     children,
+//     label,
+//     type,
+//   };
+// }
+// const items = [
+//   getItem("Option 1", "1", <PieChartOutlined />),
+//   getItem("Option 2", "2", <DesktopOutlined />),
+//   getItem("Option 3", "3", <DesktopOutlined />),
+//   getItem("Option 4", "4", <ContainerOutlined />),
+//   getItem("Option 5", "5", <ContainerOutlined />),
+// ];
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
+
   return (
     <div className="w-[16rem]">
-      <Button
+      <StyledButton
         onClick={toggleCollapsed}
-        className=" text-[1.4rem] mb-4 border-none"
+        size="large"
+        className="text-[1.8rem] h-[4rem] p-3 text-left bg-[#8282] w-full"
       >
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-      </Button>
+      </StyledButton>
 
       <Menu
         defaultSelectedKeys={["1"]}
         defaultOpenKeys={["sub1"]}
         mode="inline"
-        theme="dark"
+        // theme="dark"
         inlineCollapsed={collapsed}
-        items={items}
-        className="p-3 my-2"
+        className="py-10"
+        items={[
+          {
+            key: '1',
+            className:'m-3',
+            icon: <PieChartOutlined />,
+            label: 'Smartphones',
+          },
+          {
+            key: '2',
+            className:'m-3',
+            icon: <DesktopOutlined />,
+            label: 'Laptops',
+          },
+          {
+            key: '3',
+            className:'',
+            icon: <ContainerOutlined />,
+            label: 'Grocery',
+          },
+          {
+            key: '4',
+            className:'',
+            icon: <ContainerOutlined />,
+            label: 'Home Decoration',
+          },
+          {
+            key: '5',
+            icon: <ContainerOutlined />,
+            label: 'Fragnances',
+          },
+        ]}
       />
     </div>
   );
 };
 export default Sidebar;
+
+// You can do it your way
