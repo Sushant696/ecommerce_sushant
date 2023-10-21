@@ -66,7 +66,7 @@ const Sidebar = () => {
             key: '3',
             className:'',
             icon: <ContainerOutlined />,
-            label: 'Grocery',
+            label: 'Groceries',  // groceries plus skincare
           },
           {
             key: '4',
@@ -77,7 +77,7 @@ const Sidebar = () => {
           {
             key: '5',
             icon: <ContainerOutlined />,
-            label: 'Fragnances',
+            label: 'Fragrances',
           },
         ]}
       />
