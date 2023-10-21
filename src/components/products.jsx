@@ -20,18 +20,22 @@ export default function Products() {
   return (
     <div className="flex flex-col items-center gap-4 lg:grid lg:grid-cols-3 px-4 ">
       {data.map((p, i) => (
-        <div key={i} className="border border-black w-[15rem] m-4 p-2">
+        <div key={i} className="border border-black w-[15rem] p-2">
           <div>
             <img
-              className="w-[15rem] h-[15rem]"
+              className="w-[13rem] h-[13rem]"
               src={`${p.thumbnail}`}
               alt=""
             />
-            <h1 className="text-[1rem] font-semibold capitalize">{p.title}</h1>
+            <h1 className="text-[1rem] font-semibold text-center capitalize">{p.title}</h1>
           </div>
-          <h2>${p.price}</h2>
-          <button>Add to Cart</button>
+          <div className="flex flex-row justify-between border">
+          <h2 className="font-semibold border ">${p.price}</h2>
+          <div>
+          <button className="bg-[#1877F2] p-3 m-2 rounded-[15px]">Add to Cart</button>
           <HeartOutlined />
+          </div>
+          </div>
         </div>
       ))}
     </div>
