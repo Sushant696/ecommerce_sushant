@@ -46,14 +46,14 @@ export default function Products() {
           <div className="h-1/4 p-2 flex justify-between border border-[#009] m-1">
             <div>
               <strike className="font-semibold text-[#900] self-center">${p.price}</strike>
-              <h4 className="self-center text-[.8rem] inline m-1">
+              <h4 className="self-center text-[#444] text-[.8rem] inline m-1">
                 {p.discountPercentage}%
               </h4>
               <h2 className="text-[#090]"> ${discountedPrice(p.price, p.discountPercentage).toFixed(2)}</h2>
             </div>
             <div>
               <button
-                className="bg-[#1877F2] p-3 m-2 rounded-[15px]"
+                className="bg-[#1877F2] py-2 px-4 m-2 rounded-[15px]"
                 onClick={handleAdd}
               >
                 Add to Cart
@@ -64,11 +64,4 @@ export default function Products() {
       ))}
     </div>
   );
-}
-
-{
-  /* Smart phones laptops components */
-}
-{
-  /* <Smartphone key={i} data={data} />; */
 }
