@@ -1,14 +1,19 @@
+import { useContext } from "react";
 import Navbar from "../components/navbar";
-import Sidebar from "../components/sidebar";
+import { EcommerceContext } from "../context/ecommerceContext";
+
 export default function Basket() {
+  const { total } = useContext(EcommerceContext);
+
   return (
     <>
       <div className="flex">
-        <Sidebar />
         <Navbar />
       </div>
       <div className="text-center text-2xl font-semibold pt-3 my-2">
-        <h1>Welcome to basket component</h1>
+        <h3>Your basket</h3>
+        <p>total : {total}</p>
+
       </div>
     </>
   );

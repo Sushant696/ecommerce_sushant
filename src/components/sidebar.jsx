@@ -33,11 +33,11 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-[16rem]">
+    <div className="">
       <StyledButton
         onClick={toggleCollapsed}
         size="large"
-        className="text-[1.8rem] h-[4rem] p-3 text-left bg-[#8282] w-full"
+        className="text-[1.8rem] h-[4rem] p-3 text-left w-full"
       >
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </StyledButton>
