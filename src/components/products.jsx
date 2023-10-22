@@ -21,17 +21,21 @@ export default function Products() {
         console.error("API Error", error);
       });
   }, []);
-
+  const discountedPrice = (initialPrice, discountPercentage) => {
+    const discount = (initialPrice * discountPercentage) / 100;
+    return initialPrice - discount;
+  };
+  
   return (
-    <div className="flex flex-wrap justify-center  my-2 gap-4  ">
+    <div className="flex flex-wrap justify-center  my-2 gap-4">
       {data.map((p, i) => (
         <div
           key={i}
-          className="flex flex-col jusfity-between border border-black w-[15rem] m-4"
+          className="flex flex-col jusfity-between border border-black w-[300px] m-4"
         >
-          <div>
+          <div className="">
             <img
-              className="w-[13rem] h-[13rem]"
+              className="border border-[#900] p-1 w-[100%] h-[12rem]"
               src={`${p.thumbnail}`}
               alt=""
             />
@@ -39,8 +43,14 @@ export default function Products() {
               {p.title}
             </h1>
           </div>
-          <div className="h-[4rem] flex flex-row justify-between border  ">
-            <h2 className="font-semibold border ">${p.price}</h2>
+          <div className="h-1/4 p-2 flex justify-between border border-[#009] m-1">
+            <div>
+              <strike className="font-semibold text-[#900] self-center">${p.price}</strike>
+              <h4 className="self-center text-[.8rem] inline m-1">
+                {p.discountPercentage}%
+              </h4>
+              <h2 className="text-[#090]"> ${discountedPrice(p.price, p.discountPercentage).toFixed(2)}</h2>
+            </div>
             <div>
               <button
                 className="bg-[#1877F2] p-3 m-2 rounded-[15px]"
