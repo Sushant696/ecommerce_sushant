@@ -53,9 +53,9 @@ export default function Products() {
               ${discountedPrice(p.price, p.discountPercentage).toFixed(2)}
               </h2>
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-evenly">
               <button
-                className="bg-[#1877F2] py-3 px-6 w-[90%] my-2 text-[#FFF] rounded-[15px]"
+                className="bg-[#1877F2] py-3 px-6 w-[70%] my-2 text-[#FFF] rounded-[15px]"
                 onClick={handleAdd}
               >
                 Add to Cart
