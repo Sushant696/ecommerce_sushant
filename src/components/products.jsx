@@ -69,11 +69,3 @@ export default function Products() {
   );
 }
 
-{
-  /* Smart phones laptops components */
-}
-{
-  /* <Smartphone key={i} data={data} />; */
-}
-
-// sort product according to price 

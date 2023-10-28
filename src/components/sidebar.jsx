@@ -33,7 +33,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="">
+    <div className="border flex flex-col">
       <StyledButton
         onClick={toggleCollapsed}
         size="large"
