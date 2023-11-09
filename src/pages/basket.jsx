@@ -1,9 +1,9 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import Navbar from "../components/navbar";
-import { EcommerceContext } from "../context/ecommerceContext";
+// import { EcommerceContext } from "../context/ecommerceContext";
 
 export default function Basket() {
-  const { Products, total } = useContext(EcommerceContext);
+  // const { Products, total } = useContext(EcommerceContext);
 
   return (
     <>
@@ -12,9 +12,9 @@ export default function Basket() {
       </div>
       <div className=" flex flex-row justify-between text-center text-2xl font-semibold px-6 py-10 mt-6">
         <h3>Your basket</h3>
-        <p>total : {total}</p>
+        <p>total :</p>
       </div>
-      {console.log(Products)}
+      {/* {console.log(Products)} */}
     </>
   );
 }

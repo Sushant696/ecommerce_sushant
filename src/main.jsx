@@ -6,6 +6,7 @@ import "./index.css"
 // import Consumer from './pages/category/smartphone'
 // import Smartphone from './pages/category/smartphone'
 import App from './App'
+import Smartphone from './pages/category/smartphone'
 // import SideBar from './components/sidebar'
 // import PageLayout  from './components/layout'
 
@@ -15,5 +16,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <Products/> */}
     {/* <Smartphone/> */}
     {/* <Consumer/> */}
+    <Smartphone/>
   </React.StrictMode>,
 )

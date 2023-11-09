@@ -1,13 +1,12 @@
-import  { useContext } from "react";
-import { Context } from "../../context/context";
+// import  { useContext } from "react";
+// import { EcommerceContext } from "../../context/ecommerceContext";
 
-export default function Consumer() {
-  const count = useContext(Context);
+export default function Smartphone() {
+  // const { products } = useContext(EcommerceContext);
 
   return (
     <div>
-      hello {count} hello
-      {console.log(count)}
+      
     </div>
   );
 }
