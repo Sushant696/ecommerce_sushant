@@ -4,7 +4,7 @@ import {
   DesktopOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  PieChartOutlined,
+  PhoneFilled,
 } from "@ant-design/icons";
 
 import { Menu } from "antd";
@@ -50,10 +50,11 @@ const Sidebar = () => {
         inlineCollapsed={collapsed}
         className="py-10"
         items={[
+          
           {
             key: '1',
             className:'m-3',
-            icon: <PieChartOutlined />,
+            icon: <PhoneFilled />,
             label: 'Smartphones',
           },
           {
