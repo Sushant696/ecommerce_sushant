@@ -98,4 +98,4 @@ function SidebarPath() {
 
 export default Sidebar;
 
-// You can do it your way
+// if you want to integrate that toggle then import the navbar here in this component and then pass the data the state and the setstate variables and then make you custom button and use it inside of the navbar .. better looks and nice design

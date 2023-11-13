@@ -2,16 +2,15 @@ import {Routes , Route } from "react-router-dom";
 import Home from "./pages/home";
 import './index.css'
 import Basket from "./pages/basket";
-import { StoreProvider } from "./context/ecommerceContext"; 
 
 function App() {
   return (
-    <StoreProvider>
+    // <StoreProvider>
         <Routes>
           <Route path="*" element={<Home />} />
           <Route path="/basket" element={<Basket />} />
         </Routes>
-    </StoreProvider>
+    // </StoreProvider>
   );
 }
 
