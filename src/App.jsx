@@ -17,5 +17,4 @@ function App() {
 
 export default App;
 
-
 // here in app render the layout (side bar + layout) do the routing in anohter component as necessary

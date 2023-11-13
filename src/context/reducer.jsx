@@ -1,30 +1,30 @@
-// using reducer for the first time
+// // using reducer for the first time
 
-export const initialState = {
-  total: 0,
-  products: [],
-};
+// export const initialState = {
+//   total: 0,
+//   products: [],
+// };
 
-const storeReducer = (state, action) => {
-  switch (action.type) {
-    case  'add' :
-        return {
-            ...state,
-            products:action.payload
-        }
-    case 'remove':
-        return {
-            ...state ,
-            products : action.payload
-        }
-    case 'update' :
-        return{
-            ...state,
-            total : action.payload
+// const storeReducer = (state, action) => {
+//   switch (action.type) {
+//     case  'add' :
+//         return {
+//             ...state,
+//             products:action.payload
+//         }
+//     case 'remove':
+//         return {
+//             ...state ,
+//             products : action.payload
+//         }
+//     case 'update' :
+//         return{
+//             ...state,
+//             total : action.payload
 
-        }
-    default :throw Error("Cannot match case in reducer")
-  }
-};
+//         }
+//     default :throw Error("Cannot match case in reducer")
+//   }
+// };
 
-export default storeReducer
+// export default storeReducer
