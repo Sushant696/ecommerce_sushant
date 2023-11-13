@@ -28,6 +28,8 @@ export default function Products() {
   };
   
   return (
+    <> 
+    <h2 className="text-center text-[2rem]">Value for money products of our store</h2>
     <div className="flex flex-wrap justify-center  my-2 gap-4">
       {data.map((p, i) => (
         <div
@@ -57,7 +59,7 @@ export default function Products() {
               <button
                 className="bg-[#1877F2] py-3 px-6 w-[70%] my-2 text-[#FFF] rounded-[15px]"
                 onClick={handleAdd}
-              >
+                >
                 Add to Cart
               </button>
               <HeartOutlined className="text-[1.5rem]"/>
@@ -66,6 +68,7 @@ export default function Products() {
         </div>
       ))}
     </div>
+</>
   );
 }
 
