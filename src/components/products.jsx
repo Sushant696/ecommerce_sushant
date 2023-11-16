@@ -23,7 +23,7 @@ export default function Products() {
   
   return (
     <> 
-    <h2 className="text-center text-[2rem]">Value for money products of our store</h2>
+    <h2 className="text-center text-[2rem]">Hassle Free shoping on sushant Ecommerce</h2>
     <div className="flex flex-wrap justify-center  my-2 gap-4">
       {data.map((p, i) => (
         <div

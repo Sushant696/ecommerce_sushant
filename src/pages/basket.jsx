@@ -1,9 +1,12 @@
 // import { useContext } from "react";
+import { useContext } from "react";
 import Navbar from "../components/navbar";
+import StoreContext from "../context/storeContext";
 // import { EcommerceContext } from "../context/ecommerceContext";
 
 export default function Basket() {
   // const { Products, total } = useContext(EcommerceContext);
+  const {data} = useContext(StoreContext)
 
   return (
     <>
@@ -13,6 +16,7 @@ export default function Basket() {
       <div className=" flex flex-row justify-between text-center text-2xl font-semibold px-6 py-10 mt-6">
         <h3>Your basket</h3>
         <p>total :</p>
+        {console.log(data)}
       </div>
       {/* {console.log(Products)} */}
     </>

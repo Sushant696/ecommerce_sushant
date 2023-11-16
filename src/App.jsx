@@ -2,15 +2,18 @@ import {Routes , Route } from "react-router-dom";
 import Home from "./pages/home";
 import './index.css'
 import Basket from "./pages/basket";
+import StoreContextProvider from "./context/storeProvider";
+import ApiData from "./context/updatedata";
 
 function App() {
   return (
-    // <StoreProvider>
+    <StoreContextProvider>
         <Routes>
           <Route path="*" element={<Home />} />
           <Route path="/basket" element={<Basket />} />
         </Routes>
-    // </StoreProvider>
+        <ApiData/>
+    </StoreContextProvider>
   );
 }
 

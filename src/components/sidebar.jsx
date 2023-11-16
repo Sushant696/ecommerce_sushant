@@ -10,6 +10,7 @@ import { useState } from "react";
 import { Menu, Button } from "antd";
 import { useNavigate, Routes, Route } from "react-router-dom";
 import Products from "./products";
+import Smartphone from "../pages/category/smartphone";
 
 
 const Sidebar = () => {
@@ -21,14 +22,14 @@ const Sidebar = () => {
 
 
   return (
-    <>
+    <div className="flex">
+      <div className=" flex flex-col">
         <Button
           onClick={toggleCollapsed}
-          className="text-[1.5rem] h-[3rem] p-1"
+          className="text-[2rem] h-[2.5rem] mx-3 my-6 flex justify-center bg-[#1877F2] hover:bg-[#1877F2] hover:text-[#111] active:bg-[#1877F2]-700 focus:outline-none focus:ring focus:ring-gray-300 "
         >
           {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         </Button>
-      <div className="flex">
         <Menu
           onClick={({ key }) => {
             if (key === "signout") {
@@ -42,7 +43,7 @@ const Sidebar = () => {
           mode="inline"
           // theme="dark"
           inlineCollapsed={collapsed}
-          className="py-10"
+          // className="py-10"
           items={[
             {
               label: "Smartphones",
@@ -75,9 +76,9 @@ const Sidebar = () => {
             },
           ]}
         />
-        <SidebarPath />
       </div>
-    </>
+        <SidebarPath />
+    </div>
   );
 };
 
@@ -86,7 +87,7 @@ function SidebarPath() {
     <div>
       <Routes>
         <Route path="/" element={<Products />} />
-        <Route path="/smartphones" element={<h1>Smartphone</h1>} />
+        <Route path="/smartphones" element={<Smartphone/>} />
         <Route path="/laptops" element={<h1>Laptops</h1>} />
         <Route path="/groceries" element={<h1>Groceries</h1>} />
         <Route path="/decor" element={<h1>Decor</h1>} />
