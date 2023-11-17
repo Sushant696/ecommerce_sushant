@@ -1,1 +1,5 @@
-// create context and export it 
+import { createContext } from "react";
+
+const StoreContext = createContext()
+
+export default StoreContext

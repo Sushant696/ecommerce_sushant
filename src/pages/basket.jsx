@@ -1,9 +1,10 @@
-// import { useContext } from "react";
+import { useContext } from "react";
 import Navbar from "../components/navbar";
-// import { EcommerceContext } from "../context/ecommerceContext";
+import StoreContext from "../context/storeContext";
+
 
 export default function Basket() {
-  // const { Products, total } = useContext(EcommerceContext);
+  const { data } = useContext(StoreContext); // data received here
 
   return (
     <>
@@ -14,10 +15,6 @@ export default function Basket() {
         <h3>Your basket</h3>
         <p>total :</p>
       </div>
-      {/* {console.log(Products)} */}
     </>
   );
 }
-
-// i need to import the products stored here and then map it and update the cart is and i also need to understand what i have done here in this project and how does the reducer and context is being setuped 
-// what is the variable or the things that contains the data of products i need to figure that out.

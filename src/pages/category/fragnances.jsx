@@ -2,7 +2,7 @@ import { useContext } from "react";
 import StoreContext from "../../context/storeContext";
 import { HeartOutlined } from "@ant-design/icons";
 
-export default function Laptops() {
+export default function Fragrances() {
   const { data } = useContext(StoreContext);
 
   const discountedPrice = (initialPrice, discountPercentage) => {
@@ -14,7 +14,7 @@ export default function Laptops() {
     <>
       <div className="flex flex-wrap justify-center my-2 gap-4">
         {data.map((p, i) => {
-          if (p.category === "laptops") {
+          if (p.category === "fragrances") {
             return (
               <div
                 key={i}
