@@ -3,16 +3,17 @@ import Home from "./pages/home";
 import './index.css'
 import Basket from "./pages/basket";
 import StoreContextProvider from "./context/storeProvider";
-import ApiData from "./context/updatedata";
+
 
 function App() {
+
+
   return (
     <StoreContextProvider>
         <Routes>
           <Route path="*" element={<Home />} />
           <Route path="/basket" element={<Basket />} />
         </Routes>
-        <ApiData/>
     </StoreContextProvider>
   );
 }

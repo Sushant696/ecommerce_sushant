@@ -1,10 +1,22 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import StoreContext from "./storeContext";
+import axios from "axios";
 
 export default function StoreContextProvider({ children }) {
-  const [data, setData] = useState("initial");
-  console.log("data state", data);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://dummyjson.com/products")
+      .then((res) => {
+        setData(res.data.products);
+        console.log('fetching data')
+      })
+      .catch((error) => {
+        console.error("API Error", error);
+      });
+  }, []);
   return (
     <StoreContext.Provider value={{ data, setData }}>
       {children}

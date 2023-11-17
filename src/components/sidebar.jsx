@@ -11,6 +11,10 @@ import { Menu, Button } from "antd";
 import { useNavigate, Routes, Route } from "react-router-dom";
 import Products from "./products";
 import Smartphone from "../pages/category/smartphone";
+import Laptops from "../pages/category/laptops";
+import Grocery from "../pages/category/grocery";
+import HomeDecoration from "../pages/category/homedecor";
+import Fragrances from "../pages/category/fragnances";
 
 
 const Sidebar = () => {
@@ -38,8 +42,6 @@ const Sidebar = () => {
               navigate(key);
             }
           }}
-          defaultSelectedKeys={["1"]}
-          defaultOpenKeys={["sub1"]}
           mode="inline"
           // theme="dark"
           inlineCollapsed={collapsed}
@@ -88,10 +90,10 @@ function SidebarPath() {
       <Routes>
         <Route path="/" element={<Products />} />
         <Route path="/smartphones" element={<Smartphone/>} />
-        <Route path="/laptops" element={<h1>Laptops</h1>} />
-        <Route path="/groceries" element={<h1>Groceries</h1>} />
-        <Route path="/decor" element={<h1>Decor</h1>} />
-        <Route path="/fragrances" element={<h1>Fragnances</h1>} />
+        <Route path="/laptops" element={<Laptops/>} />
+        <Route path="/groceries" element={<Grocery/>} />
+        <Route path="/decor" element={<HomeDecoration/>} />
+        <Route path="/fragrances" element={<Fragrances/>} />
       </Routes>
     </div>
   );
