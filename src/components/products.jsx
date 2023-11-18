@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { HeartOutlined } from "@ant-design/icons";
-// import Smartphone from "../pages/category/smartphone";
 
 export default function Products() {
   const [data, setData] = useState([]);
