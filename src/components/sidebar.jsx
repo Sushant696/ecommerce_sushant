@@ -3,7 +3,9 @@ import {
   DesktopOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  PieChartOutlined,
+  MobileOutlined,
+  ShopOutlined,
+  ShoppingOutlined,
 } from "@ant-design/icons";
 
 import { useState } from "react";
@@ -27,7 +29,7 @@ const Sidebar = () => {
 
   return (
     <div className="flex">
-      <div className=" flex flex-col">
+      <div className=" flex flex-col ">
         <Button
           onClick={toggleCollapsed}
           className="text-[2rem] h-[2.5rem] mx-3 my-6 flex justify-center bg-[#1877F2] hover:bg-[#1877F2] hover:text-[#111] active:bg-[#1877F2]-700 focus:outline-none focus:ring focus:ring-gray-300 "
@@ -45,13 +47,13 @@ const Sidebar = () => {
           mode="inline"
           // theme="dark"
           inlineCollapsed={collapsed}
-          // className="py-10"
+          className=""
           items={[
             {
               label: "Smartphones",
               key: "/smartphones",
-              className: "m-3",
-              icon: <PieChartOutlined />,
+              className: "",
+              icon: <MobileOutlined />,
             },
             {
               label: "Laptops",
@@ -62,14 +64,14 @@ const Sidebar = () => {
             {
               key: "groceries",
               className: "",
-              icon: <ContainerOutlined />,
+              icon: <ShoppingOutlined />,
               label: "Groceries", 
             },
             {
               label: "Home Decoration",
               key: "/decor",
               className: "",
-              icon: <ContainerOutlined />,
+              icon: <ShopOutlined  />,
             },
             {
               label: "Fragrances",
@@ -101,4 +103,4 @@ function SidebarPath() {
 
 export default Sidebar;
 
-// if you want to integrate that toggle then import the navbar here in this component and then pass the data the state and the setstate variables and then make you custom button and use it inside of the navbar .. better looks and nice design
+// if you want to integrate that toggle then import the navbar here in this component and then pass the data, the state and the setstate variables and then make your custom button and use it inside of the navbar .. better looks and nice design
