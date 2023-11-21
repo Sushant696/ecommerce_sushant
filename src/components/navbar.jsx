@@ -13,9 +13,9 @@ const Navbar = () => {
             <li>
               Basket
             </li>
-            <div className="">
+            <div className="flex">
               <ShoppingCartOutlined />
-            <span className="text-[14px] text-[#FFF] font-bold bg-[#EE4B2B] p-1 rounded-[50%]">
+            <span className="text-[14px] font-bold text-[#EE4B2B] p-1">
               0
             </span>
             </div>
