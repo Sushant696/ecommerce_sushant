@@ -3,7 +3,7 @@ import StoreContext from "../../context/storeContext";
 import { HeartOutlined } from "@ant-design/icons";
 
 export default function Smartphone() {
-  const { data } = useContext(StoreContext);
+  const { state, addToCart } = useContext(StoreContext);
 
   const discountedPrice = (initialPrice, discountPercentage) => {
     const discount = (initialPrice * discountPercentage) / 100;
@@ -13,7 +13,7 @@ export default function Smartphone() {
   return (
     <>
       <div className="flex flex-wrap justify-center my-2 gap-4">
-        {data.map((p, i) => {
+        {state.data.map((p, i) => {
           if (p.category === "smartphones") {
             return (
               <div
@@ -38,12 +38,19 @@ export default function Smartphone() {
                       Up to ${p.discountPercentage}% off
                     </button>
                     <h2 className="self-center font-medium text-[1.1rem] text-[#090] inline m-1">
-                      ${discountedPrice(p.price, p.discountPercentage).toFixed(2)}
+                      $
+                      {discountedPrice(p.price, p.discountPercentage).toFixed(
+                        2
+                      )}
                     </h2>
                   </div>
                   <div className="flex justify-evenly">
                     <button
                       className="bg-[#1877F2] py-3 px-6 w-[70%] my-2 text-[#FFF] rounded-[15px]"
+                      onClick={() => {
+                        console.log("Adding to cart:", p);
+                        addToCart(p);
+                      }}
                     >
                       Add to Cart
                     </button>
@@ -60,5 +67,4 @@ export default function Smartphone() {
   );
 }
 
-
-// fuck man the problem was not in context or anything but the way i provided data so what should i do is in the file where api call is made i will make different state to fetch the data and pass those state to the context global state 
+// fuck man the problem was not in context or anything but the way i provided data so what should i do is in the file where api call is made i will make different state to fetch the data and pass those state to the context global state

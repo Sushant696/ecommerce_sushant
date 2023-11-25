@@ -17,6 +17,7 @@
 //       payload: updatedBasket,
 //     });
 //   };
+  
 //   // for remove from cart functionality
 //   const removeFromCart = (product) => {
 //     const updatedBasket = state.products.filter(

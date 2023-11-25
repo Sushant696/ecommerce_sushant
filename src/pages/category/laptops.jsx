@@ -3,7 +3,7 @@ import StoreContext from "../../context/storeContext";
 import { HeartOutlined } from "@ant-design/icons";
 
 export default function Laptops() {
-  const { data } = useContext(StoreContext);
+  const { state, addToCart } = useContext(StoreContext);
 
   const discountedPrice = (initialPrice, discountPercentage) => {
     const discount = (initialPrice * discountPercentage) / 100;
@@ -12,9 +12,9 @@ export default function Laptops() {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center my-2 gap-4">
-        {data.map((p, i) => {
-          if (p.category === "laptops") {
+       <div className="flex flex-wrap justify-center my-2 gap-4">
+        {state.data.map((p, i) => {
+          if (p.category === "smartphones") {
             return (
               <div
                 key={i}
@@ -42,9 +42,10 @@ export default function Laptops() {
                     </h2>
                   </div>
                   <div className="flex justify-evenly">
-                    <button
-                      className="bg-[#1877F2] py-3 px-6 w-[70%] my-2 text-[#FFF] rounded-[15px]"
-                    >
+                  <button
+                    className="bg-[#1877F2] py-3 px-6 w-[70%] my-2 text-[#FFF] rounded-[15px]"
+                    onClick={() => addToCart(p)}
+                  >
                       Add to Cart
                     </button>
                     <HeartOutlined className="text-[1.5rem]" />
@@ -60,5 +61,3 @@ export default function Laptops() {
   );
 }
 
-
-// fuck man the problem was not in context or anything but the way i provided data so what should i do is in the file where api call is made i will make different state to fetch the data and pass those state to the context global state 

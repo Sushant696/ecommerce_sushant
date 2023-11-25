@@ -1,30 +1,28 @@
-// // using reducer for the first time
+// storeReducer.js
+export const initialState = {
+  data: [],
+  cart: [],
+  total: 0,
+};
 
-// export const initialState = {
-//   total: 0,
-//   products: [],
-// };
+export const storeReducer = (state, action) => {
 
-// const storeReducer = (state, action) => {
-//   switch (action.type) {
-//     case  'add' :
-//         return {
-//             ...state,
-//             products:action.payload
-//         }
-//     case 'remove':
-//         return {
-//             ...state ,
-//             products : action.payload
-//         }
-//     case 'update' :
-//         return{
-//             ...state,
-//             total : action.payload
+  switch (action.type) {
+    case "SET_DATA":
+      return { ...state, data: action.payload };
+    case "ADD_TO_CART":
+      return { ...state, cart: [...state.cart, action.payload] };
 
-//         }
-//     default :throw Error("Cannot match case in reducer")
-//   }
-// };
-
-// export default storeReducer
+    case "REMOVE_FROM_CART":
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload.id),
+      };
+      
+    case "UPDATE_TOTAL":{
+      const newTotal = state.cart.reduce((acc, item) => acc + item.price, 0);
+      return { ...state, total: newTotal };}
+    default:
+      return state;
+  }
+};
