@@ -53,12 +53,10 @@ export default function HomeDecoration() {
               </div>
             );
           }
-          return null;
+          return null;// skio rendering for other categories data
         })}
       </div>
     </>
   );
 }
 
-
-// fuck man the problem was not in context or anything but the way i provided data so what should i do is in the file where api call is made i will make different state to fetch the data and pass those state to the context global state 
