@@ -3,7 +3,7 @@ import StoreContext from "../../context/storeContext";
 import { HeartOutlined } from "@ant-design/icons";
 
 export default function HomeDecoration() {
-  const { data } = useContext(StoreContext);
+  const { state , addToCart } = useContext(StoreContext);
 
   const discountedPrice = (initialPrice, discountPercentage) => {
     const discount = (initialPrice * discountPercentage) / 100;
@@ -13,7 +13,7 @@ export default function HomeDecoration() {
   return (
     <>
       <div className="flex flex-wrap justify-center my-2 gap-4">
-        {data.map((p, i) => {
+        {state.data.map((p, i) => {
           if (p.category === "home-decoration") {
             return (
               <div
@@ -44,6 +44,8 @@ export default function HomeDecoration() {
                   <div className="flex justify-evenly">
                     <button
                       className="bg-[#1877F2] py-3 px-6 w-[70%] my-2 text-[#FFF] rounded-[15px]"
+
+                      onClick={()=>{addToCart(p)}}
                     >
                       Add to Cart
                     </button>
