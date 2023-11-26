@@ -14,7 +14,7 @@ export default function Laptops() {
     <>
        <div className="flex flex-wrap justify-center my-2 gap-4">
         {state.data.map((p, i) => {
-          if (p.category === "smartphones") {
+          if (p.category === "laptops") {
             return (
               <div
                 key={i}

@@ -13,7 +13,8 @@ const StoreContextProvider = ({ children }) => {
     axios
       .get("https://dummyjson.com/products")
       .then((res) => {
-        dispatch({ type: "SET_DATA", payload: res.data.products });
+        // the data is dispatched when set data case is selected
+        dispatch({ type: "SET_DATA", payload: res.data.products }); 
         console.log('fetching data')
       })
       .catch((error) => {
