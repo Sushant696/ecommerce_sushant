@@ -1,11 +1,12 @@
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined} from "@ant-design/icons";
+
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <>
       <div className="w-full">
-        <ul className="flex justify-around font-semibold p-5 bg-[#8282]">
+        <ul className="flex justify-around font-semibold p-5 bg-[#acc8d7]">
           <Link className="text-[1.5rem]" to="/">
             <li>Home</li>
           </Link>
@@ -19,6 +20,11 @@ const Navbar = () => {
               0
             </span>
             </div>
+          </Link>
+          <Link to="/wishlist" className="text-[1.5rem] flex">
+            <li>
+              WishList
+            </li>
           </Link>
         </ul>
       </div>
