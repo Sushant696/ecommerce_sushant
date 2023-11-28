@@ -1,6 +1,7 @@
 // storeReducer.js
 export const initialState = {
   data: [],
+  wishlist:[],
   cart: [],
   total: 0,
 };
@@ -19,6 +20,12 @@ export const storeReducer = (state, action) => {
     ...state,
     cart: [...state.cart, action.payload],
     total: state.total + action.payload.price,
+  };
+  // add items to wishList
+    case "ADD_TO_WISHLIST":
+  return {
+    ...state,
+    cart: [...state.cart, action.payload],
   };
 
     //    This case is use to remove my items from cart

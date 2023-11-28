@@ -12,7 +12,7 @@ export default function Products() {
 
   return (
     <>
-      <h1 className="text-center font-bold text-[2rem]">Products On Sale</h1>
+      <h1 className="text-center font-bold text-[2rem]">Value for money products of our store.</h1>
       <div className="flex flex-wrap justify-center my-2 gap-4">
         {state.data.map((p, i) => {
           if (p.discountPercentage > "12") {

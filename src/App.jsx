@@ -3,6 +3,7 @@ import Home from "./pages/home";
 import './index.css'
 import Basket from "./pages/basket";
 import StoreContextProvider from "./context/storeProvider";
+import WishList from "./pages/category/wishlist";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="*" element={<Home />} />
           <Route path="/basket" element={<Basket />} />
+          <Route path="/wishlist" element={<WishList/>} />
         </Routes>
     </StoreContextProvider>
   );
