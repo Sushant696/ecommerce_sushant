@@ -1,15 +1,20 @@
 import { useContext } from "react";
 import StoreContext from "../../context/storeContext";
-import { HeartOutlined } from "@ant-design/icons";
+import { HeartOutlined, HeartFilled  } from "@ant-design/icons";
+import { useState } from "react";
 
 export default function Smartphone() {
   const { state, addToCart } = useContext(StoreContext);
+  const [wishItem , setWishItem] = useState(false)
+
 
   const discountedPrice = (initialPrice, discountPercentage) => {
     const discount = (initialPrice * discountPercentage) / 100;
     return initialPrice - discount;
   };
-
+  const toggleWishList = () =>{
+    setWishItem(!wishItem)
+  }
   return (
     <>
       <div className="flex flex-wrap justify-center my-2 gap-4">
@@ -54,7 +59,9 @@ export default function Smartphone() {
                     >
                       Add to Cart
                     </button>
-                    <HeartOutlined className="text-[1.5rem]" />
+                    <button className="" onClick={toggleWishList}>{console.log('change the wish list')}
+                    {wishItem ? <HeartFilled size={'2rem'} bgColor={'#900'} style={{bgColor:'#900'}} /> :<HeartOutlined className="text-[1.5rem]"/>}
+                    </button>
                   </div>
                 </div>
               </div>
