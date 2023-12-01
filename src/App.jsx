@@ -3,7 +3,7 @@ import Home from "./pages/home";
 import './index.css'
 import Basket from "./pages/basket";
 import StoreContextProvider from "./context/storeProvider";
-import WishList from "./pages/category/wishlist";
+import WishList from "./pages/wishlist";
 
 
 function App() {
