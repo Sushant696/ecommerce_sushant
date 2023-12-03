@@ -51,31 +51,31 @@ const Sidebar = () => {
           items={[
             {
               label: "Smartphones",
-              key: "/smartphones",
+              key: "/home/smartphones",
               className: "",
               icon: <MobileOutlined />,
             },
             {
               label: "Laptops",
-              key: "/laptops",
+              key: "/home/laptops",
               className: "m-3",
               icon: <DesktopOutlined />,
             },
             {
-              key: "groceries",
+              key: "/home/groceries",
               className: "",
               icon: <ShoppingOutlined />,
               label: "Groceries", 
             },
             {
               label: "Home Decoration",
-              key: "/decor",
+              key: "/home/decor",
               className: "",
               icon: <ShopOutlined  />,
             },
             {
               label: "Fragrances",
-              key: "/fragrances",
+              key: "/home/fragrances",
               icon: <ContainerOutlined />,
             },
           ]}
@@ -91,11 +91,11 @@ function SidebarPath() {
     <div>
       <Routes>
         <Route path="/" element={<Products />} />
-        <Route path="/smartphones" element={<Smartphone/>} />
-        <Route path="/laptops" element={<Laptops/>} />
-        <Route path="/groceries" element={<Grocery/>} />
-        <Route path="/decor" element={<HomeDecoration/>} />
-        <Route path="/fragrances" element={<Fragrances/>} />
+        <Route path="/home/smartphones" element={<Smartphone/>} />
+        <Route path="/home/laptops" element={<Laptops/>} />
+        <Route path="/home/groceries" element={<Grocery/>} />
+        <Route path="/home/decor" element={<HomeDecoration/>} />
+        <Route path="/home/fragrances" element={<Fragrances/>} />
       </Routes>
     </div>
   );
