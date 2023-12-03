@@ -5,15 +5,23 @@ import { useState } from "react";
 
 export default function Smartphone() {
   const { state, addToCart } = useContext(StoreContext);
-  const [wishItem , setWishItem] = useState(false)
-
+  const [wishItem , setWishItems] = useState([])
 
   const discountedPrice = (initialPrice, discountPercentage) => {
     const discount = (initialPrice * discountPercentage) / 100;
     return initialPrice - discount;
   };
-  const toggleWishList = () =>{
-    setWishItem(!wishItem)
+
+  const toggleWishList = (product) =>{
+    const isWished = wishItem.includes(product.id)
+    if (isWished){
+      //If already in wishlist, remove it
+      setWishItems((prevItems) => prevItems.filter((item) => item !== product.id));
+    }
+    else {
+      // If not in wishlist add it , we are making copy of previtems 
+      setWishItems((prevItems) => [...prevItems, product.id]);
+    }
   }
   return (
     <>
@@ -59,8 +67,8 @@ export default function Smartphone() {
                     >
                       Add to Cart
                     </button>
-                    <button className="" onClick={toggleWishList}>{console.log('change the wish list')}
-                    {wishItem ? <HeartFilled size={'2rem'} bgColor={'#900'} style={{bgColor:'#900'}} /> :<HeartOutlined className="text-[1.5rem]"/>}
+                    <button className="" onClick={()=>{toggleWishList(p)}}>
+                    {wishItem.includes(p.id) ? <HeartFilled size={'2rem'}   style={{bgColor:'#900'}} /> :<HeartOutlined className="text-[1.5rem]"/>}
                     </button>
                   </div>
                 </div>
@@ -73,5 +81,3 @@ export default function Smartphone() {
     </>
   );
 }
-
-// fuck man the problem was not in context or anything but the way i provided data so what should i do is in the file where api call is made i will make different state to fetch the data and pass those state to the context global state
