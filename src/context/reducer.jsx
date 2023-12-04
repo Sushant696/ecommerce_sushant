@@ -25,7 +25,9 @@ export const storeReducer = (state, action) => {
     case "ADD_TO_WISHLIST":
   return {
     ...state,
-    cart: [...state.cart, action.payload],
+    wishlist:[...state.wishlist,action.payload]
+    // maybe i should filter here instead of doing the if else in every file 
+  
   };
 
     //    This case is use to remove my items from cart

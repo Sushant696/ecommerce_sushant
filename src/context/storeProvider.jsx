@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-
 import { useEffect, useReducer } from "react";
 import StoreContext from "./storeContext";
 import axios from "axios";
@@ -23,10 +22,14 @@ const StoreContextProvider = ({ children }) => {
   }, []);
 
   const addToCart = (product) => {
-    console.log('add to cart',product)
+    console.log(product)
     dispatch({ type: "ADD_TO_CART", payload: product });
     dispatch({ type: "UPDATE_TOTAL" });
   };
+
+  const addToWishlist = (product)=>{
+    dispatch({type:'ADD_TO_WISHLIST', payload:product})
+  }
 
   const removeFromCart = (product) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: product });
@@ -37,6 +40,7 @@ const StoreContextProvider = ({ children }) => {
     state,
     addToCart,
     removeFromCart,
+    addToWishlist,
   };
 
   return (
