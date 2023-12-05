@@ -1,9 +1,9 @@
 // storeReducer.js
 export const initialState = {
   data: [],
-  wishlist: [],
+  wishlist: JSON.parse(localStorage.getItem("wishlist")) || [],
   cart: [],
-  total: 0,
+  total: 0, 
 };
 
 export const storeReducer = (state, action) => {
@@ -13,34 +13,31 @@ export const storeReducer = (state, action) => {
     case "SET_DATA":
       return { ...state, data: action.payload };
     //  This case is use to add my items to cart
-
     case "ADD_TO_CART":
       return {
         ...state,
         cart: [...state.cart, action.payload],
         total: state.total + action.payload.price,
       };
-
     //    This case is use to remove my items from cart
     case "REMOVE_FROM_CART":
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload.id),
-      };
-    // add items to wishList
-    case "ADD_TO_WISHLIST":
+      };case "ADD_TO_WISHLIST":
       return {
         ...state,
         wishlist: [...state.wishlist, action.payload],
-        // maybe i should filter here instead of doing the if else in every file
       };
+
     case "REMOVE_FROM_WISHLIST":
       return {
         ...state,
-        wishlist: state.wishlist.filter((item) => {
-          item.id !== action.payload.id;
-        }),
+        wishlist: state.wishlist.filter(
+          (item) => item.id !== action.payload.id
+        ),
       };
+
     // update the total price when we add to remove the items from the basket
     case "UPDATE_TOTAL": {
       const newTotal = state.cart.reduce((acc, item) => acc + item.price, 0);

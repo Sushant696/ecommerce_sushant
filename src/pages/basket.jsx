@@ -4,6 +4,7 @@ import StoreContext from "../context/storeContext";
 
 export default function Basket() {
   const { state, removeFromCart } = useContext(StoreContext);
+  
 
   return (
     <>
@@ -44,4 +45,3 @@ export default function Basket() {
     </>
   );
 }
-

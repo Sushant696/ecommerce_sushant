@@ -7,21 +7,29 @@ function WishList() {
   return (
     <div className="text-[2rem] text-center">
       <Navbar />
-      {state.wishlist.map((item) => (
-        <div className="flex justify-around m-4 text-center" key={item.id}>
-          <div className="border-[#444] border-[3px] p-3 w-[14rem] text-center ">
-            <img
-              className="h-[6rem] w-[12rem]"
-              src={`${item.thumbnail}`}
-              alt="my_thumbnail"
-            />
-            <h2 className="font-semibold text-[1.2rem]">{item.title}</h2>
-            <button className="" onClick={() => removeFromWishlist(item)}>
-              Remove From Wishlist{" "}
-            </button>
+      <div className="flex justify-center">
+        {state.wishlist.map((item) => (
+          <div
+            className="flex justify-around flex-row m-4 text-center"
+            key={item.id}
+          >
+            <div className="border-[#444] border-[3px] p-3 w-[14rem] text-center ">
+              <img
+                className="h-[6rem] w-[12rem]"
+                src={`${item.thumbnail}`}
+                alt="my_thumbnail"
+              />
+              <h2 className="font-semibold text-[1.2rem]">{item.title}</h2>
+              <button
+                className="border text-[1.3rem] bg-[#900] rounded-[12px] py-1 px-3 text-[#fff]"
+                onClick={() => removeFromWishlist(item)}
+              >
+                Remove
+              </button>
+            </div>
           </div>
-        </div>
-      ))}{" "}
+        ))}
+      </div>
     </div>
   );
 }

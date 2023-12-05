@@ -13,7 +13,7 @@ export default function Smartphone() {
   };
 
   const toggleWishList = (product) => {
-    console.log('where is the error')
+    console.log("where is the error");
     if (wishItem.includes(product.id)) {
       //If already in wishlist, remove it
       setWishItems((prevItems) =>
@@ -21,7 +21,6 @@ export default function Smartphone() {
       );
     } else {
       // If not in wishlist add it , we are making copy of previtems
-      console.log(product);
       setWishItems((prevItems) => [...prevItems, product.id]);
       addToWishlist(product);
     }
@@ -64,7 +63,6 @@ export default function Smartphone() {
                     <button
                       className="bg-[#1877F2] py-3 px-6 w-[70%] my-2 text-[#FFF] rounded-[15px]"
                       onClick={() => {
-                        console.log("Adding to cart:", p);
                         addToCart(p);
                       }}
                     >
