@@ -1,28 +1,30 @@
 import { useContext } from "react";
 import StoreContext from "../../context/storeContext";
-import { HeartOutlined, HeartFilled  } from "@ant-design/icons";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import { useState } from "react";
 
 export default function Smartphone() {
-  const { state, addToCart } = useContext(StoreContext);
-  const [wishItem , setWishItems] = useState([])
+  const { state, addToCart, addToWishlist } = useContext(StoreContext);
+  const [wishItem, setWishItems] = useState([]);
 
   const discountedPrice = (initialPrice, discountPercentage) => {
     const discount = (initialPrice * discountPercentage) / 100;
     return initialPrice - discount;
   };
 
-  const toggleWishList = (product) =>{
-    const isWished = wishItem.includes(product.id)
-    if (isWished){
+  const toggleWishList = (product) => {
+    console.log("where is the error");
+    if (wishItem.includes(product.id)) {
       //If already in wishlist, remove it
-      setWishItems((prevItems) => prevItems.filter((item) => item !== product.id));
-    }
-    else {
-      // If not in wishlist add it , we are making copy of previtems 
+      setWishItems((prevItems) =>
+        prevItems.filter((item) => item !== product.id)
+      );
+    } else {
+      // If not in wishlist add it , we are making copy of previtems
       setWishItems((prevItems) => [...prevItems, product.id]);
+      addToWishlist(product);
     }
-  }
+  };
   return (
     <>
       <div className="flex flex-wrap justify-center my-2 gap-4">
@@ -61,14 +63,20 @@ export default function Smartphone() {
                     <button
                       className="bg-[#1877F2] py-3 px-6 w-[70%] my-2 text-[#FFF] rounded-[15px]"
                       onClick={() => {
-                        console.log("Adding to cart:", p);
                         addToCart(p);
                       }}
                     >
                       Add to Cart
                     </button>
-                    <button className="" onClick={()=>{toggleWishList(p)}}>
-                    {wishItem.includes(p.id) ? <HeartFilled size={'2rem'}   style={{bgColor:'#900'}} /> :<HeartOutlined className="text-[1.5rem]"/>}
+                    <button className="" onClick={() => toggleWishList(p)}>
+                      {wishItem.includes(p.id) ? (
+                        <HeartFilled
+                          size={"2rem"}
+                          style={{ bgColor: "#900" }}
+                        />
+                      ) : (
+                        <HeartOutlined className="text-[1.5rem]" />
+                      )}
                     </button>
                   </div>
                 </div>

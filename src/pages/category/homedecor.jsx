@@ -3,7 +3,7 @@ import StoreContext from "../../context/storeContext";
 import { HeartOutlined } from "@ant-design/icons";
 
 export default function HomeDecoration() {
-  const { state , addToCart } = useContext(StoreContext);
+  const { state, addToCart } = useContext(StoreContext);
 
   const discountedPrice = (initialPrice, discountPercentage) => {
     const discount = (initialPrice * discountPercentage) / 100;
@@ -38,14 +38,18 @@ export default function HomeDecoration() {
                       Up to ${p.discountPercentage}% off
                     </button>
                     <h2 className="self-center font-medium text-[1.1rem] text-[#090] inline m-1">
-                      ${discountedPrice(p.price, p.discountPercentage).toFixed(2)}
+                      $
+                      {discountedPrice(p.price, p.discountPercentage).toFixed(
+                        2
+                      )}
                     </h2>
                   </div>
                   <div className="flex justify-evenly">
                     <button
                       className="bg-[#1877F2] py-3 px-6 w-[70%] my-2 text-[#FFF] rounded-[15px]"
-
-                      onClick={()=>{addToCart(p)}}
+                      onClick={() => {
+                        addToCart(p);
+                      }}
                     >
                       Add to Cart
                     </button>
@@ -55,10 +59,9 @@ export default function HomeDecoration() {
               </div>
             );
           }
-          return null;// skio rendering for other categories data
+          return null; // skio rendering for other categories data
         })}
       </div>
     </>
   );
 }
-
