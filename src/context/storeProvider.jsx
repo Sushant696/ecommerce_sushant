@@ -35,12 +35,18 @@ const StoreContextProvider = ({ children }) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: product });
     dispatch({ type: "UPDATE_TOTAL" });
   };
+  // there function just get the data when user interact and then update the data accordingly , they mainly perform action as specified in the dispatch function
+  const removeFromWishlist = (product) => {
+    dispatch({ type: "REMOVE_FROM_WISHLIST", payload: product });
+  };
 
   const value = {
     state,
     addToCart,
     removeFromCart,
     addToWishlist,
+    removeFromWishlist
+    
   };
 
   return (
