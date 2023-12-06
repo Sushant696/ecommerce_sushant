@@ -11,22 +11,20 @@ export default function Products() {
     return initialPrice - discount;
   };
   function toggleWishList(product) {
-    if ( wishItem.includes(product.id)) {
+    if (wishItem.includes(product.id)) {
       setWishItems((prevItems) =>
         prevItems.filter((item) => item !== product.id)
       );
     } else {
-      addToWishList(product)
+      addToWishList(product);
       setWishItems((prevItems) => [...prevItems, product.id]);
     }
   }
 
   return (
-    <>
-      <h1 className="text-center font-bold text-[2rem]">
-        Value for money products of our store.
-      </h1>
-      <div className="flex flex-wrap justify-center my-2 gap-4">
+    <div>
+      <h1 className="font-bold text-[2.5rem] mt-4">Hassel Free Shoping Experience</h1>
+      <div className="flex flex-wrap justify-center my-2  gap-4">
         {state.data.map((p, i) => {
           if (p.discountPercentage > "12") {
             return (
@@ -90,7 +88,7 @@ export default function Products() {
           return null;
         })}
       </div>
-    </>
+    </div>
   );
 }
 

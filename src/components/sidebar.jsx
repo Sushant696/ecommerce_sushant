@@ -1,15 +1,12 @@
 import {
   ContainerOutlined,
   DesktopOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
   MobileOutlined,
   ShopOutlined,
   ShoppingOutlined,
 } from "@ant-design/icons";
 
-import { useState } from "react";
-import { Menu, Button } from "antd";
+import { Menu } from "antd";
 import { useNavigate, Routes, Route } from "react-router-dom";
 import Products from "./products";
 import Smartphone from "../pages/category/smartphone";
@@ -18,24 +15,12 @@ import Grocery from "../pages/category/grocery";
 import HomeDecoration from "../pages/category/homedecor";
 import Fragrances from "../pages/category/fragnances";
 
-
 const Sidebar = () => {
-  const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
-
 
   return (
-    <div className="flex">
-      <div className=" flex flex-col ">
-        <Button
-          onClick={toggleCollapsed}
-          className="text-[2rem] h-[2.5rem] mx-3 my-6 flex justify-center bg-[#1877F2] hover:bg-[#1877F2] hover:text-[#111] active:bg-[#1877F2]-700 focus:outline-none focus:ring focus:ring-gray-300 "
-        >
-          {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        </Button>
+    <div className="">
+      <div className="">
         <Menu
           onClick={({ key }) => {
             if (key === "signout") {
@@ -44,44 +29,44 @@ const Sidebar = () => {
               navigate(key);
             }
           }}
-          mode="inline"
-          // theme="dark"
-          inlineCollapsed={collapsed}
-          className=""
+          mode="horizontal"
+          theme=""
+          className="flex justify-center gap-8"
           items={[
             {
               label: "Smartphones",
               key: "/home/smartphones",
-              className: "",
-              icon: <MobileOutlined />,
+              className: "p-2 m-2 text-[1.2rem] hover:from-blue-400 hover:to-dark-blue-800 transition duration-300 ease-in-out",
+              icon: <MobileOutlined style={{ fontSize: "1.1rem" }} />,
             },
             {
               label: "Laptops",
               key: "/home/laptops",
-              className: "m-3",
-              icon: <DesktopOutlined />,
+              className: "p-2 m-2 text-[1.2rem]",
+              icon: <DesktopOutlined style={{ fontSize: "1.1rem" }}  />,
             },
             {
               key: "/home/groceries",
-              className: "",
-              icon: <ShoppingOutlined />,
-              label: "Groceries", 
+              className: "p-2 m-2 text-[1.2rem]",
+              icon: <ShoppingOutlined style={{ fontSize: "1.1rem" }}  />,
+              label: "Groceries",
             },
             {
               label: "Home Decoration",
               key: "/home/decor",
-              className: "",
-              icon: <ShopOutlined  />,
+              className: "p-2 m-2 text-[1.2rem]",
+              icon: <ShopOutlined style={{ fontSize: "1.1rem" }}  />,
             },
             {
               label: "Fragrances",
+              className: "p-2 m-2 text-[1.2rem]",
               key: "/home/fragrances",
-              icon: <ContainerOutlined />,
+              icon: <ContainerOutlined style={{ fontSize: "1.1rem" }} />,
             },
           ]}
         />
       </div>
-        <SidebarPath />
+      <SidebarPath />
     </div>
   );
 };
@@ -91,11 +76,11 @@ function SidebarPath() {
     <div>
       <Routes>
         <Route path="/" element={<Products />} />
-        <Route path="/home/smartphones" element={<Smartphone/>} />
-        <Route path="/home/laptops" element={<Laptops/>} />
-        <Route path="/home/groceries" element={<Grocery/>} />
-        <Route path="/home/decor" element={<HomeDecoration/>} />
-        <Route path="/home/fragrances" element={<Fragrances/>} />
+        <Route path="/home/smartphones" element={<Smartphone />} />
+        <Route path="/home/laptops" element={<Laptops />} />
+        <Route path="/home/groceries" element={<Grocery />} />
+        <Route path="/home/decor" element={<HomeDecoration />} />
+        <Route path="/home/fragrances" element={<Fragrances />} />
       </Routes>
     </div>
   );
