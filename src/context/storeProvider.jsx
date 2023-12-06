@@ -24,7 +24,7 @@ const StoreContextProvider = ({ children }) => {
     dispatch({ type: "UPDATE_TOTAL" });
   };
 
-  const addToWishlist = (product) => {
+  const addToWishList = (product) => {
     dispatch({ type: "ADD_TO_WISHLIST", payload: product });
   };
 
@@ -41,7 +41,7 @@ const StoreContextProvider = ({ children }) => {
     state,
     addToCart,
     removeFromCart,
-    addToWishlist,
+    addToWishList,
     removeFromWishlist,
   };
 

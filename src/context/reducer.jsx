@@ -1,7 +1,7 @@
 // storeReducer.js
 export const initialState = {
   data: [],
-  wishlist: JSON.parse(localStorage.getItem("wishlist")) || [],
+  wishlist: [],
   cart: [],
   total: 0, 
 };

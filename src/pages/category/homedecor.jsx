@@ -1,13 +1,27 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import StoreContext from "../../context/storeContext";
-import { HeartOutlined } from "@ant-design/icons";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 
 export default function HomeDecoration() {
-  const { state, addToCart } = useContext(StoreContext);
+  const { state, addToCart, addToWishList } = useContext(StoreContext);
+  const [wishItem, setWishItems] = useState([]);
 
   const discountedPrice = (initialPrice, discountPercentage) => {
     const discount = (initialPrice * discountPercentage) / 100;
     return initialPrice - discount;
+  };
+
+  const toggleWishList = (product) => {
+    if (wishItem.includes(product.id)) {
+      //If already in wishlist, remove it
+      setWishItems((prevItems) =>
+        prevItems.filter((item) => item !== product.id)
+      );
+    } else {
+      // If not in wishlist add it , we are making copy of previtems
+      setWishItems((prevItems) => [...prevItems, product.id]);
+      addToWishList(product);
+    }
   };
 
   return (
@@ -53,7 +67,16 @@ export default function HomeDecoration() {
                     >
                       Add to Cart
                     </button>
-                    <HeartOutlined className="text-[1.5rem]" />
+                    <button className="" onClick={() => toggleWishList(p)}>
+                      {wishItem.includes(p.id) ? (
+                        <HeartFilled
+                          size={"2rem"}
+                          style={{ bgColor: "#900" }}
+                        />
+                      ) : (
+                        <HeartOutlined className="text-[1.5rem]" />
+                      )}
+                    </button>
                   </div>
                 </div>
               </div>
