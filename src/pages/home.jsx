@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Navbar/>
-    <div className="flex">
+    <div className="">
       <Sidebar/>
     </div>
       <h1 className="text-center text-2xl font-semibold pt-3 my-2"></h1>
