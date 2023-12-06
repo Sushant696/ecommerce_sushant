@@ -1,13 +1,26 @@
-import { useContext } from "react";
+import { useContext , useState } from "react";
 import StoreContext from "../../context/storeContext";
-import { HeartOutlined } from "@ant-design/icons";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 
 export default function Grocery() {
-  const { state, addToCart } = useContext(StoreContext);
+  const { state, addToCart, addToWishList } = useContext(StoreContext);
+  const [wishItem, setWishItems] = useState([]);
 
   const discountedPrice = (initialPrice, discountPercentage) => {
     const discount = (initialPrice * discountPercentage) / 100;
     return initialPrice - discount;
+  };
+  const toggleWishList = (product) => {
+    if (wishItem.includes(product.id)) {
+      //If already in wishlist, remove it
+      setWishItems((prevItems) =>
+        prevItems.filter((item) => item !== product.id)
+      );
+    } else {
+      // If not in wishlist add it , we are making copy of previtems
+      setWishItems((prevItems) => [...prevItems, product.id]);
+      addToWishList(product);
+    }
   };
 
   return (
@@ -38,17 +51,31 @@ export default function Grocery() {
                       Up to ${p.discountPercentage}% off
                     </button>
                     <h2 className="self-center font-medium text-[1.1rem] text-[#090] inline m-1">
-                      ${discountedPrice(p.price, p.discountPercentage).toFixed(2)}
+                      $
+                      {discountedPrice(p.price, p.discountPercentage).toFixed(
+                        2
+                      )}
                     </h2>
                   </div>
                   <div className="flex justify-evenly">
                     <button
                       className="bg-[#1877F2] py-3 px-6 w-[70%] my-2 text-[#FFF] rounded-[15px]"
-                      onClick={()=>{addToCart(p)}}
+                      onClick={() => {
+                        addToCart(p);
+                      }}
                     >
                       Add to Cart
+                    </button>{" "}
+                    <button className="" onClick={() => toggleWishList(p)}>
+                      {wishItem.includes(p.id) ? (
+                        <HeartFilled
+                          size={"2rem"}
+                          style={{ bgColor: "#900" }}
+                        />
+                      ) : (
+                        <HeartOutlined className="text-[1.5rem]" />
+                      )}
                     </button>
-                    <HeartOutlined className="text-[1.5rem]" />
                   </div>
                 </div>
               </div>
@@ -61,5 +88,4 @@ export default function Grocery() {
   );
 }
 
-
-// fuck man the problem was not in context or anything but the way i provided data so what should i do is in the file where api call is made i will make different state to fetch the data and pass those state to the context global state 
+// fuck man the problem was not in context or anything but the way i provided data so what should i do is in the file where api call is made i will make different state to fetch the data and pass those state to the context global state

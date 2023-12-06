@@ -1,30 +1,31 @@
 import StoreContext from "../context/storeContext";
-import { useContext } from "react";
-import { HeartOutlined, HeartFilled  } from "@ant-design/icons";
-
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 
 export default function Products() {
-  const { state, addToCart } = useContext(StoreContext);
-  const [wishItem , setWishItems] = useState([])
-  
+  const { state, addToCart, addToWishList } = useContext(StoreContext);
+  const [wishItem, setWishItems] = useState([]);
+
   const discountedPrice = (initialPrice, discountPercentage) => {
     const discount = (initialPrice * discountPercentage) / 100;
     return initialPrice - discount;
   };
-  function toggleWishList (product){
-    const isWished = wishItem.includes(product.id)
-    if (isWished) {
-      setWishItems((prevItems)=>prevItems.filter((item)=> item !== product.id))
-
+  function toggleWishList(product) {
+    if ( wishItem.includes(product.id)) {
+      setWishItems((prevItems) =>
+        prevItems.filter((item) => item !== product.id)
+      );
+    } else {
+      addToWishList(product)
+      setWishItems((prevItems) => [...prevItems, product.id]);
     }
-      else setWishItems((prevItems)=>[...prevItems,product.id]) 
-
   }
 
   return (
     <>
-      <h1 className="text-center font-bold text-[2rem]">Value for money products of our store.</h1>
+      <h1 className="text-center font-bold text-[2rem]">
+        Value for money products of our store.
+      </h1>
       <div className="flex flex-wrap justify-center my-2 gap-4">
         {state.data.map((p, i) => {
           if (p.discountPercentage > "12") {
@@ -66,8 +67,20 @@ export default function Products() {
                     >
                       Add to Cart
                     </button>
-                    <button className="" onClick={()=>{toggleWishList(p)}}>
-                    {wishItem.includes(p.id) ? <HeartFilled size={'2rem'}   style={{bgColor:'#900'}} /> :<HeartOutlined className="text-[1.5rem]"/>}
+                    <button
+                      className=""
+                      onClick={() => {
+                        toggleWishList(p);
+                      }}
+                    >
+                      {wishItem.includes(p.id) ? (
+                        <HeartFilled
+                          size={"2rem"}
+                          style={{ bgColor: "#900" }}
+                        />
+                      ) : (
+                        <HeartOutlined className="text-[1.5rem]" />
+                      )}
                     </button>
                   </div>
                 </div>

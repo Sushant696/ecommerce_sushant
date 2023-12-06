@@ -1,18 +1,31 @@
-import { useContext } from "react";
+import { useContext , useState } from "react";
 import StoreContext from "../../context/storeContext";
-import { HeartOutlined } from "@ant-design/icons";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 
 export default function Fragrances() {
-  const { state , addToCart } = useContext(StoreContext);
+  const { state, addToCart , addToWishList } = useContext(StoreContext);
+  const [wishItem, setWishItems] = useState([]);
 
   const discountedPrice = (initialPrice, discountPercentage) => {
     const discount = (initialPrice * discountPercentage) / 100;
     return initialPrice - discount;
   };
-
+  const toggleWishList = (product) => {
+    console.log("where is the error");
+    if (wishItem.includes(product.id)) {
+      //If already in wishlist, remove it
+      setWishItems((prevItems) =>
+        prevItems.filter((item) => item !== product.id)
+      );
+    } else {
+      // If not in wishlist add it , we are making copy of previtems
+      setWishItems((prevItems) => [...prevItems, product.id]);
+      addToWishList(product);
+    }
+  };
   return (
     <>
-       <div className="flex flex-wrap justify-center my-2 gap-4">
+      <div className="flex flex-wrap justify-center my-2 gap-4">
         {state.data.map((p, i) => {
           if (p.category === "fragrances") {
             return (
@@ -31,24 +44,37 @@ export default function Fragrances() {
                   </h1>
                 </div>
                 <hr />
-
                 <div className="h-1/3 p-2  m-1">
                   <div className="flex justify-evenly">
                     <button className="font-semibold text-[#fff] self-center p-1 rounded bg-[#900]">
                       Up to ${p.discountPercentage}% off
                     </button>
                     <h2 className="self-center font-medium text-[1.1rem] text-[#090] inline m-1">
-                      ${discountedPrice(p.price, p.discountPercentage).toFixed(2)}
+                      $
+                      {discountedPrice(p.price, p.discountPercentage).toFixed(
+                        2
+                      )}
                     </h2>
                   </div>
                   <div className="flex justify-evenly">
                     <button
                       className="bg-[#1877F2] py-3 px-6 w-[70%] my-2 text-[#FFF] rounded-[15px]"
-                      onClick={()=>{addToCart(p)}}
+                      onClick={() => {
+                        addToCart(p);
+                      }}
                     >
                       Add to Cart
                     </button>
-                    <HeartOutlined className="text-[1.5rem]" />
+                    <button className="" onClick={() => toggleWishList(p)}>
+                      {wishItem.includes(p.id) ? (
+                        <HeartFilled
+                          size={"2rem"}
+                          style={{ bgColor: "#900" }}
+                        />
+                      ) : (
+                        <HeartOutlined className="text-[1.5rem]" />
+                      )}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -61,5 +87,4 @@ export default function Fragrances() {
   );
 }
 
-
-// fuck man the problem was not in context or anything but the way i provided data so what should i do is in the file where api call is made i will make different state to fetch the data and pass those state to the context global state 
+// fuck man the problem was not in context or anything but the way i provided data so what should i do is in the file where api call is made i will make different state to fetch the data and pass those state to the context global state

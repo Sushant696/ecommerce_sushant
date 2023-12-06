@@ -4,7 +4,9 @@ import StoreContext from "../context/storeContext";
 
 export default function Basket() {
   const { state, removeFromCart } = useContext(StoreContext);
-  
+  function handleRemoveFromCart (product) {
+    removeFromCart(product)
+  }  
 
   return (
     <>
@@ -33,7 +35,7 @@ export default function Basket() {
                 <h2 className="font-semibold text-[1rem]">${item.price}</h2>
                 <button
                   className="font-semibold text-[#fff] self-center p-1 rounded bg-[#900]"
-                  onClick={() => removeFromCart(item)}
+                  onClick={() => handleRemoveFromCart(item)}
                 >
                   Remove
                 </button>

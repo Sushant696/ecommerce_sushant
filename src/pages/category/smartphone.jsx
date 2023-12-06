@@ -1,10 +1,9 @@
-import { useContext } from "react";
+import { useContext,useState} from "react";
 import StoreContext from "../../context/storeContext";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
-import { useState } from "react";
 
 export default function Smartphone() {
-  const { state, addToCart, addToWishlist } = useContext(StoreContext);
+  const { state, addToCart, addToWishList } = useContext(StoreContext);
   const [wishItem, setWishItems] = useState([]);
 
   const discountedPrice = (initialPrice, discountPercentage) => {
@@ -13,7 +12,6 @@ export default function Smartphone() {
   };
 
   const toggleWishList = (product) => {
-    console.log("where is the error");
     if (wishItem.includes(product.id)) {
       //If already in wishlist, remove it
       setWishItems((prevItems) =>
@@ -22,7 +20,7 @@ export default function Smartphone() {
     } else {
       // If not in wishlist add it , we are making copy of previtems
       setWishItems((prevItems) => [...prevItems, product.id]);
-      addToWishlist(product);
+      addToWishList(product);
     }
   };
   return (
