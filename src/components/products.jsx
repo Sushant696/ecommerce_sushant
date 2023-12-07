@@ -1,6 +1,10 @@
 import StoreContext from "../context/storeContext";
 import { useContext, useState } from "react";
-import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import {
+  HeartOutlined,
+  HeartFilled,
+  ShoppingCartOutlined,
+} from "@ant-design/icons";
 
 export default function Products() {
   const { state, addToCart, addToWishList } = useContext(StoreContext);
@@ -23,14 +27,16 @@ export default function Products() {
 
   return (
     <div>
-      <h1 className="font-bold text-[2.5rem] mt-4">Hassel Free Shoping Experience</h1>
-      <div className="flex flex-wrap justify-center my-2  gap-4">
+      <h1 className="font-bold text-[2.5rem] px-8 mt-4">
+        Heavily Discounted Products
+      </h1>
+      <div className="flex flex-wrap justify-center mt-2  gap-4">
         {state.data.map((p, i) => {
           if (p.discountPercentage > "12") {
             return (
               <div
                 key={i}
-                className="flex flex-col justify-between border border-[#555] border-[3px] rounded-[12px] w-[330px] m-4"
+                className="flex flex-col justify-between shadow-[0px_5px_15px_rgba(0,0,0,0.35)] p-4 w-[330px] m-4"
               >
                 <div className="">
                   <img
@@ -44,9 +50,9 @@ export default function Products() {
                 </div>
                 <hr />
 
-                <div className="h-1/3 p-2  m-1">
-                  <div className="flex justify-evenly">
-                    <button className="font-semibold text-[#fff] self-center p-1 rounded bg-[#900]">
+                <div className="h-1/3">
+                  <div className="flex justify-between">
+                    <button className="font-semibold text-[#111] self-center p-1 rounded">
                       Up to ${p.discountPercentage}% off
                     </button>
                     <h2 className="self-center font-medium text-[1.1rem] text-[#090] inline m-1">
@@ -56,15 +62,13 @@ export default function Products() {
                       )}
                     </h2>
                   </div>
-                  <div className="flex justify-evenly">
-                    <button
-                      className="bg-[#1877F2] py-3 px-6 w-[70%] my-2 text-[#FFF] rounded-[15px]"
+                  <div className="flex justify-between px-2 py-4 border">
+                    <ShoppingCartOutlined
                       onClick={() => {
                         addToCart(p);
                       }}
-                    >
-                      Add to Cart
-                    </button>
+                      className="text-[#111] text-[2rem] text-[#111] rounded-[15px] transition-transform transform active:scale-90"
+                    />
                     <button
                       className=""
                       onClick={() => {
@@ -77,7 +81,7 @@ export default function Products() {
                           style={{ bgColor: "#900" }}
                         />
                       ) : (
-                        <HeartOutlined className="text-[1.5rem]" />
+                        <HeartOutlined className="text-[1.8rem]" />
                       )}
                     </button>
                   </div>
@@ -91,6 +95,3 @@ export default function Products() {
     </div>
   );
 }
-
-// if (p.discountPercentage > '12') {
-//   return (
