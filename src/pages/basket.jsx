@@ -34,7 +34,7 @@ export default function Basket() {
               <div>
                 <h2 className="font-semibold text-[1rem]">${item.price}</h2>
                 <button
-                  className="font-semibold text-[#fff] self-center p-1 rounded bg-[#900]"
+                  className="font-semibold text-[#fff] self-center p-1 rounded bg-[#444] hover:bg-[#900]"
                   onClick={() => handleRemoveFromCart(item)}
                 >
                   Remove
