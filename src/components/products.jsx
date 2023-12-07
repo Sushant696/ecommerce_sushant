@@ -62,12 +62,12 @@ export default function Products() {
                       )}
                     </h2>
                   </div>
-                  <div className="flex px-2 py-4 gap-4 border">
+                  <div className="flex justify-between px-2 py-4 border">
                     <ShoppingCartOutlined
                       onClick={() => {
                         addToCart(p);
                       }}
-                      className="text-[#111] text-[2rem] text-[#111] rounded-[15px]"
+                      className="text-[#111] text-[2rem] text-[#111] rounded-[15px] transition-transform transform active:scale-90"
                     />
                     <button
                       className=""
