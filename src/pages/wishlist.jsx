@@ -7,7 +7,7 @@ function WishList() {
   return (
     <div className="text-[2rem] text-center">
       <Navbar />
-      <div className="flex justify-center">
+      <div className="flex justify-center flex-wrap">
         {state.wishlist.map((item) => (
           <div
             className="flex justify-around flex-row m-4 text-center"
