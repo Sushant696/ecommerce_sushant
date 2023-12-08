@@ -1,8 +1,6 @@
 import StoreContext from "../context/storeContext";
 import { useContext, useState } from "react";
 import {
-  HeartOutlined,
-  HeartFilled,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 
@@ -62,13 +60,7 @@ export default function Products() {
                       )}
                     </h2>
                   </div>
-                  <div className="flex justify-between px-2 py-4 border">
-                    <ShoppingCartOutlined
-                      onClick={() => {
-                        addToCart(p);
-                      }}
-                      className="text-[#111] text-[2rem] text-[#111] rounded-[15px] transition-transform transform active:scale-90"
-                    />
+                  <div className="flex justify-between px-2 py-4">
                     <button
                       className=""
                       onClick={() => {
@@ -76,14 +68,21 @@ export default function Products() {
                       }}
                     >
                       {wishItem.includes(p.id) ? (
-                        <HeartFilled
-                          size={"2rem"}
-                          style={{ bgColor: "#900" }}
-                        />
+                        <span className="bg-[#900] rounded text-[#fff] px-1 p-2">
+                          Added to wishlist
+                        </span>
                       ) : (
-                        <HeartOutlined className="text-[1.8rem]" />
+                        <span className="bg-[#090] rounded text-[#fff] px-1 p-2">
+                          Add to wishlist
+                        </span>
                       )}
                     </button>
+                    <ShoppingCartOutlined
+                      onClick={() => {
+                        addToCart(p);
+                      }}
+                      className="text-[#111] text-[2rem] text-[#111] rounded-[15px] transition-transform transform active:scale-90"
+                    />
                   </div>
                 </div>
               </div>

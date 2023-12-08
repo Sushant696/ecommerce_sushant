@@ -88,4 +88,4 @@ function SidebarPath() {
 
 export default Sidebar;
 
-// if you want to integrate that toggle then import the navbar here in this component and then pass the data, the state and the setstate variables and then make your custom button and use it inside of the navbar .. better looks and nice design
+// add the currently selected category and add all the necessary hover effects in all the category.
