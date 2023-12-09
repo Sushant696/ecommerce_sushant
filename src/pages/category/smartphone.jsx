@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import StoreContext from "../../context/storeContext";
 import { ShoppingCartOutlined } from "@ant-design/icons";
+import React from "react";
 
-export default function Smartphone() {
+ function Smartphone() {
   const { state, addToCart, addToWishList } = useContext(StoreContext);
   const [wishItem, setWishItems] = useState([]);
 
@@ -91,3 +92,6 @@ export default function Smartphone() {
     </>
   );
 }
+
+ const MemoizedSmartphone = React.memo(Smartphone)
+export default MemoizedSmartphone

@@ -9,7 +9,7 @@ import {
 import { Menu } from "antd";
 import { useNavigate, Routes, Route } from "react-router-dom";
 import Products from "./products";
-import Smartphone from "../pages/category/smartphone";
+import MemoizedSmartphone from "../pages/category/smartphone";
 import Laptops from "../pages/category/laptops";
 import Grocery from "../pages/category/grocery";
 import HomeDecoration from "../pages/category/homedecor";
@@ -76,7 +76,7 @@ function SidebarPath() {
     <div>
       <Routes>
         <Route path="/" element={<Products />} />
-        <Route path="/home/smartphones" element={<Smartphone />} />
+        <Route path="/home/smartphones" element={<MemoizedSmartphone />} />
         <Route path="/home/laptops" element={<Laptops />} />
         <Route path="/home/groceries" element={<Grocery />} />
         <Route path="/home/decor" element={<HomeDecoration />} />
